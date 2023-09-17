@@ -1,0 +1,5 @@
+<div class="todoItemContainer" (click)="onToggle()">
+    <button class="buttonStyle" (click)="onDeleteTodoClicked()">X</button>
+    <p class="textStyle" [ngClass]="{checkedTodoItem: todo.isChecked, textStyleCompleted: todo.isChecked}">
+        {{todo.title}}</p>
+</div>
