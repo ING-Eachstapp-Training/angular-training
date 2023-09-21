@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TodoItem } from './models/todo-item.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +9,32 @@ import { TodoItem } from './models/todo-item.model';
 })
 export class AppComponent {
   myTodos: TodoItem[] = [];
-  todoText: string = '';
+  todoForm: FormGroup;
   globalId: number = 1;
 
-  onCreateButtonClicked() {
-    this.myTodos.push({
-      title: this.todoText,
-      isChecked: false,
-      id: this.globalId++,
+  constructor(private fb: FormBuilder) {
+    this.todoForm = this.fb.group({
+      todoText: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(20),
+          Validators.pattern('^[a-zA-Z ]*$'),
+        ],
+      ],
     });
-    this.todoText = '';
+  }
+
+  onSubmit() {
+    if (this.todoForm.valid) {
+      this.myTodos.push({
+        title: this.todoForm.value.todoText,
+        isChecked: false,
+        id: this.globalId++,
+      });
+      this.todoForm.reset();
+    }
   }
 
   onDeleteClicked(id: number) {
