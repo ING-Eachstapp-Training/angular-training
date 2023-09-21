@@ -1,0 +1,11 @@
+<div class="topBarContainer">
+  <h1 class="title">My todo app</h1>
+  <div style="display: flex; flex-direction: row; gap:8px">
+      <input style="width: 350px;" [(ngModel)]="todoText" placeholder="Please enter your todo title" (keyup.enter)="onCreateButtonClicked()"/>
+      <button (click)="onCreateButtonClicked()">Create my todo</button>
+  </div>
+  <div class="todoItemContainer">
+      <app-todo-item *ngFor="let todo of myTodos;" [todo]="todo" (deleteClicked)="onDeleteClicked($event)"
+          (toggled)="onToggled($event)" />
+  </div>
+</div>

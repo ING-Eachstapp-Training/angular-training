@@ -1,0 +1,32 @@
+.todoItemContainer{
+    display: flex;flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    background-color: #34919D;
+    border-radius: 8px;
+    padding: 8px;
+    width: 450px;
+    cursor: pointer;
+}
+
+.checkedTodoItem{
+    text-decoration: line-through;
+}
+
+.buttonStyle{
+    height: 20px;
+}
+
+.buttonStyle:hover{
+    background-color: #EC5E4F;
+}
+
+.textStyle{
+    color:white;
+    overflow: scroll;
+}
+
+.textStyleCompleted{
+    color:#C3B998;
+    overflow: scroll;
+}

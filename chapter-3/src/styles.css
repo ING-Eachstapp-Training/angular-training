@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #333232;
+}
+
+input {
+  border: none;
+  border-radius: 6px;
+  height: 30px; 
+}
+
+
+input:focus-visible {
+    outline: none;
+}
+  
+button {
+    background-color: white;
+    color: black;
+    transition-duration: 0.4s;
+    height: 32px;
+    border-radius: 6px;
+    border: none;
+}
+  
+button:hover {
+    background-color: #C3B998; /* Green */
+    color: white;
+    cursor: pointer;
+}

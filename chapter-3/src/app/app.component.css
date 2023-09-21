@@ -1,0 +1,23 @@
+.topBarContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title{
+    color: white;
+}
+
+.inputButtonContainer{
+    display: flex;
+    flex-direction: row; 
+    gap:8px
+}
+
+.todoItemContainer{
+    padding-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap:8px;
+}
