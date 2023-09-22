@@ -6,16 +6,16 @@
       <div
         *ngIf="todoForm.get('todoText')?.invalid && (todoForm.get('todoText')?.dirty || todoForm.get('todoText')?.touched)">
         <div class="invalidField" *ngIf="todoForm.get('todoText')?.hasError('required')">
-          - Full name is required
+          - Todo text is required
         </div>
         <div class="invalidField" *ngIf="todoForm.get('todoText')?.hasError('minlength')">
-          - Full name must be at least {{todoForm.get('todoText')?.getError("minlength").requiredLength}} characters
+          - Todo text must be at least {{todoForm.get('todoText')?.getError("minlength").requiredLength}} characters
         </div>
         <div class="invalidField" *ngIf="todoForm.get('todoText')?.hasError('maxlength')">
-          - Full name cannot exceed {{todoForm.get('todoText')?.getError("maxlength").requiredLength}} characters
+          - Todo text cannot exceed {{todoForm.get('todoText')?.getError("maxlength").requiredLength}} characters
         </div>
         <div class="invalidField" *ngIf="todoForm.get('todoText')?.hasError('pattern')">
-          - Full name can only contain characters
+          - Todo text can only contain characters
         </div>
       </div>
     </div>
