@@ -1,0 +1,28 @@
+<div class="topBarContainer">
+  <h1 class="title">My todo app</h1>
+  <form [formGroup]="todoForm" (ngSubmit)="onSubmit()" style="display: flex; flex-direction: row; gap:8px">
+    <div>
+      <input formControlName="todoText" style="width: 350px;" placeholder="Please enter your todo title">
+      <div
+        *ngIf="todoForm.get('todoText')?.invalid && (todoForm.get('todoText')?.dirty || todoForm.get('todoText')?.touched)">
+        <div class="invalidField" *ngIf="todoForm.get('todoText')?.hasError('required')">
+          - Todo text is required
+        </div>
+        <div class="invalidField" *ngIf="todoForm.get('todoText')?.hasError('minlength')">
+          - Todo text must be at least {{todoForm.get('todoText')?.getError("minlength").requiredLength}} characters
+        </div>
+        <div class="invalidField" *ngIf="todoForm.get('todoText')?.hasError('maxlength')">
+          - Todo text cannot exceed {{todoForm.get('todoText')?.getError("maxlength").requiredLength}} characters
+        </div>
+        <div class="invalidField" *ngIf="todoForm.get('todoText')?.hasError('pattern')">
+          - Todo text can only contain characters
+        </div>
+      </div>
+    </div>
+    <button type="submit">Create my todo</button>
+  </form>
+  <div class="todoItemContainer">
+    <app-todo-item *ngFor="let todo of myTodos;" [todo]="todo" (deleteClicked)="onDeleteClicked($event)"
+      (toggled)="onToggled($event)" />
+  </div>
+</div>
