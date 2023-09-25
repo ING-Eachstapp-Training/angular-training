@@ -11,7 +11,7 @@ export class AuthenticationService {
 
   Login(email: any): Observable<string> {
     return this.http.post<string>(
-      'https://localhost:7188/authentication/login',
+      'https://ing-training-wapp-backend-dev.azurewebsites.net/authentication/login',
       { email: email },
       {}
     );
