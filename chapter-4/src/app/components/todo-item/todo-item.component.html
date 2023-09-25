@@ -1,5 +1,9 @@
 <div class="todoItemContainer" (click)="onToggle()">
-    <button class="buttonStyle" (click)="onDeleteTodoClicked()">X</button>
-    <p class="textStyle" [ngClass]="{checkedTodoItem: todo.isChecked, textStyleCompleted: todo.isChecked}">
-        {{todo.title}}</p>
+    <div style="display: flex; flex-direction: row; align-items: center; gap:8px;">
+        <button class="deleteButtonStyle" (click)="onDeleteTodoClicked()">X</button>
+        <p class="textStyle" [ngClass]="{checkedTodoItem: todo.isComplete, textStyleCompleted: todo.isComplete}">
+            {{todo.title}}</p>
+    </div>
+    <button class="redirectButtonStyle" (click)="$event.stopPropagation();onDetailTodoClicked()">{{isNavigationBack ?
+        'Back': 'Detail'}}</button>
 </div>

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TodoItem } from 'src/app/models/todo-item.model';
 
 @Component({
@@ -8,8 +9,11 @@ import { TodoItem } from 'src/app/models/todo-item.model';
 })
 export class TodoItemComponent {
   @Input({ required: true }) todo!: TodoItem;
-  @Output() deleteClicked = new EventEmitter<number>();
-  @Output() toggled = new EventEmitter<number>();
+  @Input() isNavigationBack: boolean = false;
+  @Output() deleteClicked = new EventEmitter<string>();
+  @Output() toggled = new EventEmitter<string>();
+
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   onDeleteTodoClicked() {
     this.deleteClicked.emit(this.todo.id);
@@ -17,5 +21,15 @@ export class TodoItemComponent {
 
   onToggle() {
     this.toggled.emit(this.todo.id);
+  }
+
+  onDetailTodoClicked() {
+    if (this.isNavigationBack) {
+      this.router.navigate(['todo']);
+    } else {
+      this.router.navigate([`detail/${this.todo.id}`], {
+        relativeTo: this.route,
+      });
+    }
   }
 }

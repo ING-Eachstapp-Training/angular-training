@@ -1,5 +1,6 @@
 .todoItemContainer{
-    display: flex;flex-direction: row;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 4px;
     background-color: #34919D;
@@ -7,18 +8,27 @@
     padding: 8px;
     width: 450px;
     cursor: pointer;
+    justify-content: space-between;
 }
 
 .checkedTodoItem{
     text-decoration: line-through;
 }
 
-.buttonStyle{
+.deleteButtonStyle{
     height: 20px;
 }
 
-.buttonStyle:hover{
+.deleteButtonStyle:hover{
     background-color: #EC5E4F;
+}
+
+.redirectButtonStyle{
+    height: 20px;
+}
+
+.redirectButtonStyle:hover{
+    background-color: #C3B998;
 }
 
 .textStyle{

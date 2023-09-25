@@ -1,0 +1,21 @@
+.topBarContainer{
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title{
+    color: white;
+}
+
+.inputButtonContainer{
+    display: flex;
+    flex-direction: row; 
+    gap:8px
+}
+
+.invalidField{
+    color:red
+}

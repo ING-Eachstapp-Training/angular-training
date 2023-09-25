@@ -1,0 +1,4 @@
+<div class="topBarContainer" *ngIf="todo">
+    <app-todo-item [todo]="todo" [isNavigationBack]="true" (deleteClicked)="onDeleteClicked($event)"
+        (toggled)="onToggled($event)" />
+</div>

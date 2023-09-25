@@ -1,0 +1,21 @@
+<div class="topBarContainer">
+    <h1 class="title">Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" style="display: flex; flex-direction: row; gap:8px">
+        <div>
+            <input formControlName="email" style="width: 350px;" placeholder="Enter your email">
+            <div
+                *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+                <div class="invalidField" *ngIf="loginForm.get('email')?.hasError('required')">
+                    - Email is required
+                </div>
+                <div class="invalidField" *ngIf="loginForm.get('email')?.hasError('email')">
+                    - Invalid email address
+                </div>
+                <div class="invalidField" *ngIf="loginForm.get('email')?.hasError('notExist')">
+                    - This email is not authorized
+                </div>
+            </div>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+</div>
