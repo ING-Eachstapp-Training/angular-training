@@ -11,20 +11,20 @@ export class TodoService {
   constructor(private http: HttpClient) {}
 
   GetAll(): Observable<TodoItem[]> {
-    return this.http.get<TodoItem[]>('https://ing-training-wapp-backend-dev.azurewebsites.net/task', {
+    return this.http.get<TodoItem[]>('http://localhost:8080/task', {
       headers: this.authHeaders,
     });
   }
 
   GetById(taskId: string): Observable<TodoItem> {
-    return this.http.get<TodoItem>(`https://ing-training-wapp-backend-dev.azurewebsites.net/task/${taskId}`, {
+    return this.http.get<TodoItem>(`http://localhost:8080/task/${taskId}`, {
       headers: this.authHeaders,
     });
   }
 
   Create(title: any): Observable<TodoItem> {
     return this.http.post<TodoItem>(
-      'https://ing-training-wapp-backend-dev.azurewebsites.net/task',
+      'http://localhost:8080/task',
       { title: title },
       { headers: this.authHeaders }
     );
@@ -32,7 +32,7 @@ export class TodoService {
 
   Delete(taskId: string): Observable<void> {
     return this.http.delete<void>(
-      `https://ing-training-wapp-backend-dev.azurewebsites.net/task?taskId=${taskId}`,
+      `http://localhost:8080/task?taskId=${taskId}`,
       {
         headers: this.authHeaders,
       }
@@ -41,7 +41,7 @@ export class TodoService {
 
   Toggle(taskId: string, isComplete: boolean): Observable<void> {
     return this.http.put<void>(
-      `https://ing-training-wapp-backend-dev.azurewebsites.net/task/toggletask?taskId=${taskId}&newIsComplete=${isComplete}`,
+      `http://localhost:8080/task/toggletask?taskId=${taskId}&newIsComplete=${isComplete}`,
       {},
       {
         headers: this.authHeaders,
